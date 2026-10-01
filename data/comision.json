@@ -1,0 +1,47 @@
+{
+  "mostrarNombres": false,
+  "nota": "Para actualizar las instituciones, editá el archivo data/comision.json.",
+  "bloques": [
+    {
+      "titulo": "Instituciones intermedias",
+      "miembros": [
+        { "organizacion": "Colegio de Arquitectos Regional 6" },
+        { "organizacion": "Colegio de Ingenieros Civiles Delegación 7" },
+        { "organizacion": "Colegio de Técnicos Constructores y Constructores Universitarios de la Provincia de Córdoba" },
+        { "organizacion": "Asociación Inmobiliaria de Villa Carlos Paz" },
+        { "organizacion": "CEPIA · Centro de Profesionales de la Ingeniería y la Arquitectura" }
+      ]
+    },
+    {
+      "titulo": "Organizaciones ambientales",
+      "miembros": [
+        { "organizacion": "ADARSA · Asociación de Amigos del Río San Antonio" }
+      ]
+    },
+    {
+      "titulo": "Concejo de Representantes",
+      "miembros": [
+        { "organizacion": "Bloque Mayoritario" },
+        { "organizacion": "Bloques Minoritarios" }
+      ]
+    },
+    {
+      "titulo": "Departamento Ejecutivo Municipal",
+      "miembros": [
+        { "organizacion": "Dirección de Obras Privadas y Catastro" },
+        { "organizacion": "Dirección de Infraestructura Urbana" },
+        { "organizacion": "Dirección de Ambiente, Ejido y Desarrollo Sustentable" },
+        { "organizacion": "Secretaría de Gobierno y Coordinación" }
+      ]
+    },
+    {
+      "titulo": "Unidad Técnica",
+      "miembros": [
+        { "organizacion": "Concejo de Representantes · Bloque Mayoritario y Bloques Minoritarios" },
+        { "organizacion": "Secretaría de Desarrollo Urbano Ambiental" },
+        { "organizacion": "Departamento Ejecutivo Municipal · Coordinación" },
+        { "organizacion": "Profesionales técnicos designados por el Concejo de Representantes y el Departamento Ejecutivo" }
+      ]
+    }
+  ]
+}

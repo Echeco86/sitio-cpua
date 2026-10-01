@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buscador de actas, dictámenes y ordenanzas · CPUA Villa Carlos Paz</title>
+  <meta name="description" content="Buscador del CPUA: actas de sesiones, dictámenes y resoluciones desde 2009, por palabras clave, dentro del texto y por rango de fechas.">
+  <meta name="theme-color" content="#13704e">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <script src="assets/js/sitio.js" defer></script>
+</head>
+<body>
+<main id="contenido">
+
+  <section class="portada-pagina">
+    <div class="contenedor" style="padding-bottom:96px">
+      <div class="migas"><a href="index.html">Inicio</a> / Buscador</div>
+      <h1>Buscador de actas, dictámenes y ordenanzas</h1>
+      <p>Buscá por palabras clave —también dentro del texto de cada documento— y filtrá por rango de fechas. Archivo completo desde 2009.</p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:90px">
+    <div class="contenedor">
+      <div class="buscador">
+        <div class="pestanas" role="tablist" aria-label="Tipo de documento">
+          <button class="pestana" role="tab" data-tab="todo" aria-selected="true">Todo <span id="n-todo">–</span></button>
+          <button class="pestana" role="tab" data-tab="actas" aria-selected="false">Actas <span id="n-actas">–</span></button>
+          <button class="pestana" role="tab" data-tab="dictamenes" aria-selected="false">Dictámenes <span id="n-dictamenes">–</span></button>
+          <button class="pestana" role="tab" data-tab="resoluciones" aria-selected="false">Resoluciones <span id="n-resoluciones">–</span></button>
+          <button class="pestana" role="tab" data-tab="ordenanzas" aria-selected="false">Ordenanzas</button>
+        </div>
+
+        <div id="filtros">
+          <div class="campos-busqueda">
+            <div class="campo">
+              <label for="q">Palabras clave</label>
+              <div style="position:relative"><span data-icono="buscar"></span>
+                <input id="q" type="search" placeholder='Ej.: Corredor Illia, FOS, "área protegida", acta 450' autocomplete="off">
+              </div>
+            </div>
+            <div class="campo"><label for="desde">Desde</label><input id="desde" type="date" min="2009-01-01"></div>
+            <div class="campo"><label for="hasta">Hasta</label><input id="hasta" type="date" min="2009-01-01"></div>
+            <div class="campo"><label for="orden">Ordenar por</label>
+              <select id="orden">
+                <option value="relevancia">Relevancia</option>
+                <option value="recientes">Más recientes</option>
+                <option value="antiguos">Más antiguos</option>
+              </select>
+            </div>
+          </div>
+          <div class="opciones-busqueda">
+            <label><input type="checkbox" id="en-texto" checked> Buscar también dentro del texto de los documentos</label>
+            <span class="estado-texto" id="estado-texto">Texto completo sin cargar</span>
+            <div class="atajos" aria-label="Rangos rápidos">
+              <button class="atajo" data-rango="1">Último año</button>
+              <button class="atajo" data-rango="5">Últimos 5 años</button>
+              <button class="atajo" data-rango="anio">Este año</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel de ordenanzas (enlace al Digesto) -->
+      <div id="panel-ordenanzas" class="panel-ordenanzas" hidden>
+        <div class="tarjeta">
+          <div class="etiqueta">Digesto Legislativo Municipal</div>
+          <h2>Ordenanzas de Villa Carlos Paz</h2>
+          <p>Las ordenanzas se consultan en el Digesto Legislativo de la Municipalidad, que permite buscar por número, año, tema o palabras clave y descargar el texto oficial.</p>
+          <a class="boton boton-verde" href="https://villacarlospaz.gov.ar/digestolm/" target="_blank" rel="noopener">Ir al buscador del Digesto <span data-icono="externo"></span></a>
+          <p style="margin-top:18px;font-size:.92rem;color:var(--suave)">¿Buscás qué dijo el CPUA sobre una ordenanza? Escribí su número en la pestaña <a href="#todo&q=4021">Todo</a> para encontrar dictámenes y actas que la mencionan.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="etiqueta">Acceso directo</div>
+          <h3>Ordenanza Nº 4021 · Código de Edificación y Desarrollo Urbano Ambiental</h3>
+          <div class="grilla" style="gap:10px;margin-top:14px">
+            <a class="recurso" href="https://www.villacarlospaz.gov.ar/sistemas/digesto/files/downloadxde2/267/1bbc3c306738264e0889377f7b55b2fc9f0481b1." target="_blank" rel="noopener">
+              <span class="icono" data-icono="doc"></span><div><h3>1ª parte</h3><p>Del art. 1º al art. 9.9.3</p></div>
+            </a>
+            <a class="recurso" href="https://www.villacarlospaz.gov.ar/sistemas/digesto/files/downloadxde2/267/469b411acbc76942dadc45663c0d3f349dfff965." target="_blank" rel="noopener">
+              <span class="icono" data-icono="doc"></span><div><h3>2ª parte</h3><p>Del art. 9.9.2.7 al art. 24º</p></div>
+            </a>
+            <div class="recurso pendiente">
+              <span class="icono" data-icono="balanza"></span><div><h3>Carta Orgánica Municipal</h3><p>Próximamente disponible.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="zona-resultados">
+        <div class="resumen-busqueda" aria-live="polite">
+          <span id="resumen">Cargando archivo…</span>
+          <button class="limpiar" id="limpiar" hidden>Limpiar filtros</button>
+        </div>
+        <div id="resultados"></div>
+        <div class="mas"><button class="boton boton-claro" id="ver-mas" hidden>Mostrar más</button></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const TABS = {
+    todo: null,
+    actas: ["acta", "foro", "anexo"],
+    dictamenes: ["dictamen", "complementario"],
+    resoluciones: ["resolucion"],
+    ordenanzas: "panel",
+  };
+  const $ = (id) => document.getElementById(id);
+  const estado = { tab: "todo", q: "", desde: "", hasta: "", orden: "", enTexto: true, mostrar: 0 };
+  let docs = [];
+  let textos = null;          // { url: texto original }
+  let textosPlanos = null;    // { url: texto normalizado (misma longitud) }
+  let cargaTexto = null;
+
+  /* Normaliza sin cambiar la longitud del texto (para poder resaltar en el original) */
+  const MAPA = { á: "a", à: "a", ä: "a", â: "a", ã: "a", é: "e", è: "e", ë: "e", ê: "e", í: "i", ì: "i", ï: "i", î: "i", ó: "o", ò: "o", ö: "o", ô: "o", õ: "o", ú: "u", ù: "u", ü: "u", û: "u", ñ: "n", ç: "c", º: "o", "°": "o" };
+  const plano = (s) => String(s || "").toLowerCase().replace(/[áàäâãéèëêíìïîóòöôõúùüûñçº°]/g, (c) => MAPA[c]);
+
+  function terminos(q) {
+    const out = [];
+    const re = /"([^"]+)"|(\S+)/g; let m;
+    while ((m = re.exec(q))) {
+      const t = plano((m[1] || m[2]).trim()).replace(/^[^\w]+|[^\w]+$/g, "");
+      if (t && (t.length > 1 || /\d/.test(t))) out.push(t);
+    }
+    return out;
+  }
+
+  /* ---- Estado en la URL (se puede compartir un enlace a una búsqueda) ---- */
+  function leerHash() {
+    const h = new URLSearchParams(location.hash.slice(1).replace(/^(\w+)(&|$)/, "tab=$1$2"));
+    estado.tab = TABS.hasOwnProperty(h.get("tab")) ? h.get("tab") : "todo";
+    estado.q = h.get("q") || "";
+    estado.desde = h.get("desde") || "";
+    estado.hasta = h.get("hasta") || "";
+    const anio = h.get("anio");
+    if (anio) { estado.desde = `${anio}-01-01`; estado.hasta = `${anio}-12-31`; }
+    estado.orden = h.get("orden") || "";
+    estado.enTexto = h.get("texto") !== "no";
+    estado.mostrar = 0;
+  }
+  function escribirHash() {
+    const p = [estado.tab];
+    if (estado.q) p.push("q=" + encodeURIComponent(estado.q));
+    if (estado.desde) p.push("desde=" + estado.desde);
+    if (estado.hasta) p.push("hasta=" + estado.hasta);
+    if (estado.orden) p.push("orden=" + estado.orden);
+    if (!estado.enTexto) p.push("texto=no");
+    history.replaceState(null, "", "#" + p.join("&"));
+  }
+
+  /* ---- Rango de fechas de cada documento ---- */
+  function rango(d) {
+    if (d.d && d.d.length === 10) return [d.d, d.d];
+    if (d.d && d.d.length === 7) return [d.d + "-01", d.d + "-31"];
+    return [`${d.y}-01-01`, `${d.y}-12-31`];
+  }
+
+  /* ---- Texto completo: se descarga solo cuando hace falta ---- */
+  function asegurarTexto() {
+    if (textos || cargaTexto) return cargaTexto;
+    $("estado-texto").className = "estado-texto cargando";
+    $("estado-texto").textContent = "Cargando texto de los documentos…";
+    cargaTexto = fetch("data/texto.json").then((r) => r.json()).then((t) => {
+      textos = t; textosPlanos = {};
+      for (const k in t) textosPlanos[k] = plano(t[k]);
+      $("estado-texto").className = "estado-texto listo";
+      $("estado-texto").textContent = `Texto completo de ${Object.keys(t).length} documentos`;
+      pintar();
+    }).catch(() => {
+      $("estado-texto").className = "estado-texto";
+      $("estado-texto").textContent = "No se pudo cargar el texto completo";
+    });
+    return cargaTexto;
+  }
+
+  function contar(hay, t, max = 30) {
+    let n = 0, i = hay.indexOf(t);
+    while (i !== -1 && n < max) { n++; i = hay.indexOf(t, i + t.length); }
+    return n;
+  }
+
+  function filtrar() {
+    const tipos = TABS[estado.tab];
+    const ts = terminos(estado.q);
+    const usarTexto = estado.enTexto && textosPlanos;
+    const res = [];
+    for (const d of docs) {
+      if (tipos && !tipos.includes(d.t)) continue;
+      if (estado.desde || estado.hasta) {
+        const [a, b] = rango(d);
+        if (estado.desde && b < estado.desde) continue;
+        if (estado.hasta && a > estado.hasta) continue;
+      }
+      if (!ts.length) { res.push({ d, puntos: 0 }); continue; }
+      const cuerpo = usarTexto ? textosPlanos[d.url] || "" : "";
+      let puntos = 0, ok = true;
+      for (const t of ts) {
+        const enMeta = d._meta.includes(t);
+        const enCuerpo = cuerpo ? contar(cuerpo, t) : 0;
+        if (!enMeta && !enCuerpo) { ok = false; break; }
+        puntos += (enMeta ? 25 : 0) + (d._titulo.includes(t) ? 15 : 0) + enCuerpo;
+      }
+      if (ok) res.push({ d, puntos });
+    }
+    return { res, ts };
+  }
+
+  /* ---- Extractos con las palabras resaltadas ---- */
+  function resaltar(orig, ts) {
+    const p = plano(orig), marcas = [];
+    ts.forEach((t) => { let i = p.indexOf(t); while (i !== -1) { marcas.push([i, i + t.length]); i = p.indexOf(t, i + t.length); } });
+    marcas.sort((a, b) => a[0] - b[0]);
+    let html = "", pos = 0;
+    for (const [a, b] of marcas) {
+      if (a < pos) continue;
+      html += escapar(orig.slice(pos, a)) + "<mark>" + escapar(orig.slice(a, b)) + "</mark>";
+      pos = b;
+    }
+    return html + escapar(orig.slice(pos));
+  }
+  function extractos(d, ts) {
+    if (!textos || !estado.enTexto || !ts.length) return "";
+    const orig = textos[d.url], p = textosPlanos[d.url];
+    if (!orig) return "";
+    const salida = [], usados = [];
+    for (const t of ts) {
+      const i = p.indexOf(t);
+      if (i === -1 || usados.some((u) => Math.abs(u - i) < 200)) continue;
+      usados.push(i);
+      let a = Math.max(0, i - 110), b = Math.min(orig.length, i + t.length + 170);
+      if (a > 0) a = orig.indexOf(" ", a) + 1 || a;
+      if (b < orig.length) b = orig.lastIndexOf(" ", b) > i ? orig.lastIndexOf(" ", b) : b;
+      salida.push(`<span class="extracto">${a > 0 ? "… " : ""}${resaltar(orig.slice(a, b), ts)}${b < orig.length ? " …" : ""}</span>`);
+      if (salida.length === 2) break;
+    }
+    return salida.join("");
+  }
+
+  const PAGINA = 30;
+  function pintar() {
+    document.querySelectorAll(".pestana").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === estado.tab));
+    const esPanel = TABS[estado.tab] === "panel";
+    $("panel-ordenanzas").hidden = !esPanel;
+    $("filtros").hidden = esPanel;
+    $("zona-resultados").hidden = esPanel;
+    if (esPanel) return;
+
+    $("q").value = estado.q; $("desde").value = estado.desde; $("hasta").value = estado.hasta;
+    $("en-texto").checked = estado.enTexto;
+    const ts = terminos(estado.q);
+    const orden = estado.orden || (ts.length ? "relevancia" : "recientes");
+    $("orden").value = orden;
+    if (ts.length && estado.enTexto) asegurarTexto();
+
+    const { res } = filtrar();
+    const porFecha = (a, b) => (rango(b.d)[0].localeCompare(rango(a.d)[0])) || ((b.d.n || 0) - (a.d.n || 0));
+    if (orden === "relevancia" && ts.length) res.sort((a, b) => (b.puntos - a.puntos) || porFecha(a, b));
+    else if (orden === "antiguos") res.sort((a, b) => porFecha(b, a));
+    else res.sort(porFecha);
+
+    const filtrando = ts.length || estado.desde || estado.hasta;
+    $("limpiar").hidden = !filtrando;
+    const nota = ts.length && estado.enTexto && !textos ? " · buscando en títulos mientras carga el texto completo…" : "";
+    $("resumen").textContent = res.length ? `${res.length} documento${res.length === 1 ? "" : "s"}${nota}` : "";
+
+    if (!res.length) {
+      $("resultados").innerHTML = `<div class="vacio"><b>No encontramos documentos</b>Probá con otras palabras, ampliá el rango de fechas o activá la búsqueda dentro del texto.</div>`;
+      $("ver-mas").hidden = true;
+      return;
+    }
+    const limite = estado.mostrar || (ts.length ? PAGINA : 60);
+    const visibles = res.slice(0, limite);
+    $("ver-mas").hidden = visibles.length >= res.length;
+    $("ver-mas").textContent = `Mostrar más (${res.length - visibles.length} restantes)`;
+
+    if (orden === "relevancia" && ts.length) {
+      $("resultados").innerHTML = `<ul class="documentos">${visibles.map((r) => filaDocumento(r.d, extractos(r.d, ts))).join("")}</ul>`;
+    } else {
+      const grupos = new Map();
+      visibles.forEach((r) => { if (!grupos.has(r.d.y)) grupos.set(r.d.y, []); grupos.get(r.d.y).push(r.d); });
+      $("resultados").innerHTML = [...grupos].map(([y, items]) =>
+        `<section class="anio-grupo"><h2>${y}</h2><ul class="documentos">${items.map((d) => filaDocumento(d, extractos(d, ts))).join("")}</ul></section>`).join("");
+    }
+  }
+
+  /* ---- Eventos ---- */
+  const cambiar = (cambios) => { Object.assign(estado, cambios, { mostrar: 0 }); escribirHash(); pintar(); };
+  document.querySelectorAll(".pestana").forEach((b) => b.addEventListener("click", () => cambiar({ tab: b.dataset.tab })));
+  let t;
+  $("q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => cambiar({ q: e.target.value.trim(), orden: "" }), 250); });
+  $("desde").addEventListener("change", (e) => cambiar({ desde: e.target.value }));
+  $("hasta").addEventListener("change", (e) => cambiar({ hasta: e.target.value }));
+  $("orden").addEventListener("change", (e) => cambiar({ orden: e.target.value }));
+  $("en-texto").addEventListener("change", (e) => cambiar({ enTexto: e.target.checked }));
+  document.querySelectorAll("[data-rango]").forEach((b) => b.addEventListener("click", () => {
+    const hoy = new Date(), iso = (x) => x.toISOString().slice(0, 10);
+    const r = b.dataset.rango;
+    if (r === "anio") return cambiar({ desde: `${hoy.getFullYear()}-01-01`, hasta: "" });
+    const d = new Date(hoy); d.setFullYear(d.getFullYear() - Number(r));
+    cambiar({ desde: iso(d), hasta: "" });
+  }));
+  $("limpiar").addEventListener("click", () => { cambiar({ q: "", desde: "", hasta: "", orden: "" }); $("q").focus(); });
+  $("ver-mas").addEventListener("click", () => {
+    estado.mostrar = (estado.mostrar || (terminos(estado.q).length ? PAGINA : 60)) + 60; pintar();
+  });
+  addEventListener("hashchange", () => { leerHash(); pintar(); });
+
+  leerHash();
+  cargarArchivo().then((lista) => {
+    docs = lista.map((d) => ({
+      ...d,
+      _titulo: plano(`${d.titulo} ${d.tema || ""}`),
+      _meta: plano([d.titulo, d.tema, d.grupo, d.y, d.n && `n ${d.n} nº ${d.n} no ${d.n}`, d.d && fechaLarga(d.d), (ETIQUETAS_TIPO[d.t] || [])[1], d.rel && `acta ${d.rel}`].filter(Boolean).join(" ")),
+    }));
+    const cuenta = (tipos) => docs.filter((d) => !tipos || tipos.includes(d.t)).length;
+    ["todo", "actas", "dictamenes", "resoluciones"].forEach((k) => { $("n-" + k).textContent = cuenta(TABS[k]); });
+    const hoy = new Date().toISOString().slice(0, 10);
+    $("desde").max = hoy; $("hasta").max = hoy;
+    pintar();
+  }).catch(() => {
+    $("resumen").textContent = "";
+    $("resultados").innerHTML = `<div class="vacio"><b>No se pudo cargar el archivo</b>Si estás abriendo el sitio desde tu computadora, usá un servidor local (ver README).</div>`;
+  });
+});
+</script>
+</body>
+</html>

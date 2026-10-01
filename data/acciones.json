@@ -1,0 +1,39 @@
+{
+  "acciones": [
+    {
+      "fecha": "Marzo 2009",
+      "titulo": "Inicio de funcionamiento del CPUA",
+      "texto": "Primera sesión de la Comisión Plenaria Honoraria (Acta Nº 1, 13 de marzo de 2009).",
+      "ambito": "CPUA"
+    },
+    {
+      "fecha": "",
+      "titulo": "Foro Urbano Ambiental: Código de Edificación y actividad hotelera",
+      "texto": "Encuentro abierto en el Salón Auditorio Municipal para debatir la normativa aplicable a la actividad hotelera en Villa Carlos Paz.",
+      "ambito": "CPUA"
+    },
+    {
+      "fecha": "",
+      "titulo": "Foro Urbano Ambiental: Presentación del Plan de Manejo del Área Protegida, Etapa I",
+      "texto": "Presentación pública del Plan de Manejo del Área Protegida de Villa Carlos Paz en el Salón Auditorio Municipal.",
+      "ambito": "MAP"
+    }
+  ],
+  "galeria": [
+    {
+      "imagen": "assets/img/foro-hoteleria.jpg",
+      "titulo": "Foro Urbano Ambiental",
+      "texto": "Código de Edificación y actividad hotelera en Villa Carlos Paz."
+    },
+    {
+      "imagen": "assets/img/foro-ap1.jpg",
+      "titulo": "Foro Urbano Ambiental · Área Protegida",
+      "texto": "Presentación del Plan de Manejo, Etapa I."
+    },
+    {
+      "imagen": "assets/img/vcp-panorama.jpg",
+      "titulo": "Villa Carlos Paz",
+      "texto": "Vista de la ciudad y las sierras."
+    }
+  ]
+}

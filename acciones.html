@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acciones y galería · CPUA Villa Carlos Paz</title>
+  <meta name="description" content="Acciones, foros y galería de imágenes del Consejo de Planificación Urbano Ambiental de Villa Carlos Paz.">
+  <meta name="theme-color" content="#13704e">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <script src="assets/js/sitio.js" defer></script>
+</head>
+<body>
+<main id="contenido">
+
+  <section class="portada-pagina">
+    <div class="contenedor">
+      <div class="migas"><a href="index.html">Inicio</a> / Acciones</div>
+      <h1>Acciones y galería</h1>
+      <p>Foros, jornadas y actividades del CPUA y de la Comisión Asesora del Área Protegida (MAP).</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor dos-col arriba">
+      <div>
+        <div class="encabezado-seccion">
+          <div class="etiqueta">Acciones</div>
+          <h2>Lo actuado por el Consejo</h2>
+        </div>
+        <ul class="linea-tiempo" id="acciones"></ul>
+      </div>
+      <div>
+        <div class="aviso" style="margin-top:8px"><span data-icono="info"></span><span>Esta sección se completa con fichas de lo actuado durante estos años. Para sumar una acción, agregala en <code>data/acciones.json</code>.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion-gris" id="galeria">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <div class="etiqueta">Galería</div>
+        <h2>Imágenes</h2>
+      </div>
+      <div class="galeria" id="fotos"></div>
+    </div>
+  </section>
+
+  <dialog class="visor" id="visor">
+    <button class="cerrar" aria-label="Cerrar">×</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("data/acciones.json").then((r) => r.json()).then((j) => {
+    document.getElementById("acciones").innerHTML = j.acciones.map((a) => `
+      <li><span class="fecha">${escapar([a.fecha, a.ambito].filter(Boolean).join(" · "))}</span>
+      <h3>${escapar(a.titulo)}</h3><p>${escapar(a.texto)}</p></li>`).join("");
+    document.getElementById("fotos").innerHTML = j.galeria.map((g, i) => `
+      <figure class="foto"><button data-i="${i}" aria-label="Ampliar imagen: ${escapar(g.titulo)}"><img src="${encodeURI(g.imagen)}" alt="${escapar(g.titulo)}" loading="lazy"></button>
+      <figcaption><b>${escapar(g.titulo)}</b>${escapar(g.texto)}</figcaption></figure>`).join("");
+    const visor = document.getElementById("visor");
+    document.getElementById("fotos").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-i]"); if (!b) return;
+      const g = j.galeria[b.dataset.i];
+      visor.querySelector("img").src = g.imagen; visor.querySelector("img").alt = g.titulo;
+      visor.querySelector("p").textContent = `${g.titulo} — ${g.texto}`;
+      visor.showModal();
+    });
+    visor.addEventListener("click", (e) => { if (e.target === visor || e.target.classList.contains("cerrar")) visor.close(); });
+  });
+});
+</script>
+</body>
+</html>
