@@ -22,18 +22,6 @@ sitio-cpua/
 └── scripts/generar_archivo.py
 ```
 
-## Publicar en GitHub Pages (una sola vez)
-
-1. Crear una cuenta u organización en GitHub (por ejemplo `cpua-vcp`).
-2. Crear un repositorio **público** llamado `cpua-vcp.github.io` (así la dirección queda `https://cpua-vcp.github.io`). Cualquier otro nombre también funciona y queda como `https://usuario.github.io/nombre-repo`.
-3. Subir el contenido de esta carpeta. Como son ~730 PDF (~300 MB), conviene usar **GitHub Desktop** (la carga desde el navegador admite pocos archivos por vez):
-   - *File → Add local repository* → elegir la carpeta `sitio-cpua` → *create a repository* si lo pide.
-   - *Publish repository* (destildar “Keep this code private”).
-4. En GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, rama `main`, carpeta `/ (root)` → *Save*.
-5. En uno o dos minutos el sitio está en línea.
-
-**Dominio propio (opcional):** si se quiere usar `www.cpua.gov.ar`, en *Settings → Pages → Custom domain* se escribe el dominio y se pide a quien administra el DNS un registro `CNAME` apuntando a `cpua-vcp.github.io`.
-
 ## Buscador
 
 La página `archivo.html` busca en actas, dictámenes y resoluciones:
@@ -75,20 +63,4 @@ Reglas que usa el script para ordenar el archivo:
 | Teléfono, mail, redes, horario, menú | `assets/js/sitio.js` → objeto `CONFIG` al inicio |
 | Textos institucionales | directamente en cada `.html` |
 
-## Probar en la computadora
 
-Como las páginas leen archivos `.json`, abrir el HTML con doble clic no alcanza. Desde la carpeta:
-
-```
-python -m http.server 8000
-```
-
-y abrir `http://localhost:8000`.
-
-## Pendientes
-
-- [ ] La sección de integración muestra solo instituciones (`"mostrarNombres": false` en `data/comision.json`). Los nombres del período 2022–2023 quedaron fuera del sitio, en `ANTECEDENTES/comision-2022-2023-con-nombres.json`; para mostrarlos, copiar sus datos a `data/comision.json` y poner `"mostrarNombres": true`.
-- [ ] Enviar los PDF de la sección Documentos (Carta Orgánica, Plan de la Villa 2020, etc.).
-- [ ] Completar Acciones (fichas) y Galería (fotos con epígrafe), del CPUA y de la MAP.
-- [ ] Confirmar datos de contacto y enlaces exactos de Facebook y YouTube en `assets/js/sitio.js`.
-- [ ] Revisar si algún documento con datos de particulares (expedientes, notas personales) no debería publicarse; basta con sacarlo de la carpeta de origen y volver a correr el script.
