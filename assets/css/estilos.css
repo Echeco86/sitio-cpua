@@ -35,7 +35,7 @@ body {
   background: var(--blanco);
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--verde); text-underline-offset: 3px; }
 a:hover { color: var(--verde-800); }
 h1, h2, h3, h4 { color: var(--tinta); line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; }
