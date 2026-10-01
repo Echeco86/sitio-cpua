@@ -30,7 +30,7 @@ La página `archivo.html` busca en actas, dictámenes y resoluciones:
 - **Rango de fechas** (desde / hasta) y atajos: último año, últimos 5 años, este año.
 - **Orden** por relevancia, más recientes o más antiguos. Muestra extractos con las palabras resaltadas.
 - Cada búsqueda queda en la dirección de la página, así que se puede compartir el enlace.
-- La pestaña **Ordenanzas** enlaza al Digesto Legislativo Municipal y da acceso directo a la Ordenanza 4021 (y a la Carta Orgánica cuando esté).
+- La pestaña **Ordenanzas** enlaza al Digesto Legislativo Municipal y da acceso directo a la Ordenanza 4021 y a la Carta Orgánica.
 
 El texto completo se guarda en `data/texto.json` (unos 13 MB, que GitHub sirve comprimidos a ~3 MB) y solo se descarga cuando alguien busca.
 
