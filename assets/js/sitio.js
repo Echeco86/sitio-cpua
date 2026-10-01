@@ -13,7 +13,7 @@ const CONFIG = {
     instagram: "https://www.instagram.com/carlospazcpua/",
     instagramTexto: "@carlospazcpua",
     facebook: "https://www.facebook.com/search/top?q=Carlos%20Paz%20Cpua",
-    youtube: "https://www.youtube.com/results?search_query=Cpua+carlos+paz",
+    youtube: "https://www.youtube.com/@cpuavillacarlospaz3213",
   },
   menu: [
     { href: "index.html", texto: "Inicio" },
