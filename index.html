@@ -8,7 +8,7 @@
   <meta property="og:title" content="CPUA · Consejo de Planificación Urbano Ambiental">
   <meta property="og:description" content="Planificación urbana y ambiental participativa para Villa Carlos Paz.">
   <meta property="og:image" content="assets/img/logo-cpua.png">
-  <meta name="theme-color" content="#13704e">
+  <meta name="theme-color" content="#006666">
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,8 +198,8 @@
       document.getElementById("c-actas").textContent = actas.length;
       document.getElementById("c-dictamenes").textContent = dict.length;
       const ordenar = (a, b) => (b.y - a.y) || ((b.n || 0) - (a.n || 0)) || ((b.d || "").localeCompare(a.d || ""));
-      document.getElementById("ultimas-actas").innerHTML = actas.sort(ordenar).slice(0, 5).map(filaDocumento).join("");
-      document.getElementById("ultimos-dictamenes").innerHTML = dict.sort(ordenar).slice(0, 5).map(filaDocumento).join("");
+      document.getElementById("ultimas-actas").innerHTML = actas.sort(ordenar).slice(0, 5).map((d) => filaDocumento(d)).join("");
+      document.getElementById("ultimos-dictamenes").innerHTML = dict.sort(ordenar).slice(0, 5).map((d) => filaDocumento(d)).join("");
     }).catch(() => {
       document.querySelectorAll("#ultimas-actas, #ultimos-dictamenes").forEach((u) => u.innerHTML = '<li class="vacio">No se pudo cargar el archivo.</li>');
     });

@@ -3,23 +3,23 @@
    Hoja de estilos principal
    ========================================================= */
 :root {
-  --verde: #13704e;
-  --verde-600: #0f5f42;
-  --verde-800: #0b4330;
-  --verde-900: #082e21;
-  --lima: #d4f531;
-  --lima-200: #eefbb0;
-  --lima-50: #f8fde6;
-  --tinta: #13241c;
-  --texto: #34443c;
-  --suave: #62716a;
-  --linea: #dfe6e1;
-  --papel: #f5f7f3;
+  --verde: #006666;
+  --verde-600: #005a5a;
+  --verde-800: #004747;
+  --verde-900: #003333;
+  --lima: #d5df4a;
+  --lima-200: #eef2b8;
+  --lima-50: #f9fbe8;
+  --tinta: #0f2626;
+  --texto: #334545;
+  --suave: #5f7070;
+  --linea: #dbe5e4;
+  --papel: #f4f7f6;
   --blanco: #ffffff;
   --radio: 18px;
   --radio-s: 10px;
-  --sombra: 0 1px 2px rgba(8, 46, 33, .06), 0 8px 24px rgba(8, 46, 33, .07);
-  --sombra-alta: 0 2px 4px rgba(8, 46, 33, .08), 0 18px 40px rgba(8, 46, 33, .14);
+  --sombra: 0 1px 2px rgba(0, 51, 51, .06), 0 8px 24px rgba(0, 51, 51, .07);
+  --sombra-alta: 0 2px 4px rgba(0, 51, 51, .08), 0 18px 40px rgba(0, 51, 51, .14);
   --ancho: 1180px;
   --fuente: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -60,7 +60,7 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid transparent;
   transition: border-color .2s, box-shadow .2s;
 }
-.encabezado.con-sombra { border-color: var(--linea); box-shadow: 0 4px 20px rgba(8, 46, 33, .06); }
+.encabezado.con-sombra { border-color: var(--linea); box-shadow: 0 4px 20px rgba(0, 51, 51, .06); }
 .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
 .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--tinta); }
 .marca img { height: 40px; width: auto; }
@@ -104,8 +104,8 @@ p { margin: 0 0 1em; }
 }
 .boton svg { width: 20px; height: 20px; flex: none; }
 .boton:hover { transform: translateY(-2px); }
-.boton-lima { background: var(--lima); color: var(--verde-900); box-shadow: 0 8px 24px rgba(212, 245, 49, .35); }
-.boton-lima:hover { background: #e2ff55; color: var(--verde-900); }
+.boton-lima { background: var(--lima); color: var(--verde-900); box-shadow: 0 8px 24px rgba(213, 223, 74, .35); }
+.boton-lima:hover { background: #e1e96e; color: var(--verde-900); }
 .boton-verde { background: var(--verde); color: #fff; }
 .boton-verde:hover { background: var(--verde-800); color: #fff; }
 .boton-borde { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .55); }
@@ -136,8 +136,8 @@ p { margin: 0 0 1em; }
 .portada::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(100deg, var(--verde-900) 18%, rgba(8, 46, 33, .82) 48%, rgba(19, 112, 78, .35) 100%),
-    linear-gradient(0deg, rgba(8, 46, 33, .7), transparent 45%);
+    linear-gradient(100deg, var(--verde-900) 18%, rgba(0, 51, 51, .82) 48%, rgba(0, 102, 102, .35) 100%),
+    linear-gradient(0deg, rgba(0, 51, 51, .7), transparent 45%);
 }
 .portada .contenedor { padding: clamp(80px, 12vw, 150px) 0 clamp(70px, 10vw, 120px); display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center; }
 .portada h1 { color: #fff; max-width: 14ch; }
@@ -303,8 +303,8 @@ p { margin: 0 0 1em; }
   width: 100%; font: inherit; font-size: 1rem; padding: 14px 16px 14px 48px; border-radius: 12px;
   border: 1.5px solid var(--linea); background: var(--papel); color: var(--tinta); appearance: none;
 }
-.campo select { padding-left: 16px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2362716a' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; }
-.campo input:focus, .campo select:focus { outline: none; border-color: var(--verde); background-color: #fff; box-shadow: 0 0 0 4px rgba(19, 112, 78, .12); }
+.campo select { padding-left: 16px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f7070' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; }
+.campo input:focus, .campo select:focus { outline: none; border-color: var(--verde); background-color: #fff; box-shadow: 0 0 0 4px rgba(0, 102, 102, .12); }
 .resumen-busqueda { margin: 28px 0 8px; color: var(--suave); font-size: .95rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .limpiar { background: none; border: 0; color: var(--verde); font: inherit; font-weight: 700; cursor: pointer; padding: 0; }
 
@@ -414,7 +414,7 @@ a.recurso:hover { box-shadow: var(--sombra-alta); transform: translateY(-3px); b
 .linea-tiempo li::before { content: ""; position: absolute; left: 4px; top: 6px; width: 16px; height: 16px; border-radius: 4px; background: var(--lima); box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--linea); }
 .linea-tiempo .fecha { font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--verde); }
 .linea-tiempo h3 { margin: 4px 0 6px; }
-.aviso { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 14px; background: var(--lima-50); border: 1px dashed #b9d62a; color: var(--verde-800); font-size: .95rem; }
+.aviso { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-radius: 14px; background: var(--lima-50); border: 1px dashed #b5bf33; color: var(--verde-800); font-size: .95rem; }
 .aviso svg { flex: none; width: 22px; height: 22px; margin-top: 2px; }
 
 /* ---------- Contacto ---------- */
