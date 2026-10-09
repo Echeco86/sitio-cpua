@@ -109,7 +109,7 @@ def copiar(origen, destino, avisos):
     destino.parent.mkdir(parents=True, exist_ok=True)
     tam = origen.stat().st_size / 1e6
     if destino.exists() and destino.stat().st_size > 0 and tam <= LIMITE_MB:
-        if destino.stat().st_size == origen.stat().st_size:
+        if destino.stat().st_size == origen.stat().st_size and destino.stat().st_mtime >= origen.stat().st_mtime - 2:
             return True
     if tam <= LIMITE_MB:
         shutil.copy2(origen, destino)
@@ -301,7 +301,7 @@ def extraer_textos(finales, usar_ocr, avisos):
         pdf = RAIZ / d["url"]
         if not pdf.exists():
             continue
-        firma = f"{pdf.stat().st_size}"
+        firma = f"{pdf.stat().st_size}-{int(pdf.stat().st_mtime)}"
         c = cache.get(d["url"])
         if c and c.get("firma") == firma and (c.get("ocr") or not usar_ocr or len(c["texto"]) > 200):
             texto = c["texto"]
