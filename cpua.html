@@ -61,11 +61,11 @@
         <div class="grupo aparecer" style="--c: var(--verde)">
           <h3>Instituciones intermedias <small>5 miembros</small></h3>
           <ul>
-            <li>Colegio de Arquitectos Regional 6</li>
-            <li>Colegio de Ingenieros Civiles Regional 7</li>
+            <li>Colegio de Arquitectos de la Provincia de Córdoba Regional 6</li>
+            <li>Colegio de Ingenieros Civiles Delegación 7 Sierras</li>
             <li>Centro de Profesionales de la Ingeniería y la Arquitectura (CEPIA)</li>
-            <li>Asociación Inmobiliaria</li>
-            <li>Colegio de Técnicos Constructores Universitarios y/o Constructores Universitarios de la Provincia de Córdoba</li>
+            <li>Asociación Inmobiliaria de Villa Carlos Paz</li>
+            <li>Colegio de Técnicos Constructores y/o Constructores Universitarios de la Provincia de Córdoba</li>
           </ul>
         </div>
         <div class="grupo aparecer" style="--c: var(--lima)">
@@ -169,9 +169,10 @@
     <div class="contenedor">
       <div class="encabezado-seccion aparecer">
         <div class="etiqueta">Integración actual</div>
-        <h2>Instituciones que integran la Comisión Plenaria</h2>
+        <h2>Integrantes de la Comisión Plenaria y la Unidad Técnica</h2>
+        <p>Según los Decretos Nº 004/2026-27 (entidades intermedias) y Nº 001/2026-27 (concejales) del Concejo de Representantes, y el Decreto Nº 446/DE/2026 del Departamento Ejecutivo Municipal.</p>
       </div>
-      <div id="comision-contenido"><p class="vacio">Cargando instituciones…</p></div>
+      <div id="comision-contenido"><p class="vacio">Cargando integrantes…</p></div>
     </div>
   </section>
 
@@ -181,8 +182,11 @@
     const cont = document.getElementById("comision-contenido");
     fetch("data/comision.json").then((r) => r.json()).then((c) => {
       const nombres = c.mostrarNombres === true;
+      const integrante = (i) => typeof i === "string"
+        ? `<li>${escapar(i)}</li>`
+        : `<li>${i.rol ? `<span class="rol">${escapar(i.rol)}</span>` : ""}${escapar(i.nombre)}${i.cargo ? `<small>${escapar(i.cargo)}</small>` : ""}</li>`;
       const miembro = (p) => nombres && p.integrantes && p.integrantes.length
-        ? `<div class="persona"><div class="org">${escapar(p.organizacion)}</div><ul>${p.integrantes.map((i) => `<li>${escapar(i)}</li>`).join("")}</ul></div>`
+        ? `<div class="persona${p.vacante ? " vacante" : ""}"><div class="org">${escapar(p.organizacion)}</div><ul>${p.integrantes.map(integrante).join("")}</ul></div>`
         : `<div class="persona institucion"><span class="ic-inst">${icono("edificio")}</span><span>${escapar(p.organizacion)}</span></div>`;
       let html = nombres && c.periodo ? `<div class="periodo">${icono("calendario")} Período ${escapar(c.periodo)}</div>` : "";
       if (nombres && c.directiva && c.directiva.length) {

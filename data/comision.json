@@ -1,46 +1,234 @@
 {
-  "mostrarNombres": false,
-  "nota": "Para actualizar las instituciones, editá el archivo data/comision.json.",
+  "mostrarNombres": true,
+  "periodo": "2026-2027",
+  "nota": "Para actualizar la integración, editá el archivo data/comision.json. Fuentes: Decreto Nº 001/2026-27 del Concejo de Representantes (concejales), Decreto Nº 004/2026-27 del Concejo de Representantes (entidades intermedias) y Decreto Nº 446/DE/2026 (Departamento Ejecutivo Municipal). Cada integrante puede ser texto o un objeto {rol, nombre, cargo}.",
   "bloques": [
     {
       "titulo": "Instituciones intermedias",
       "miembros": [
-        { "organizacion": "Colegio de Arquitectos Regional 6" },
-        { "organizacion": "Colegio de Ingenieros Civiles Delegación 7" },
-        { "organizacion": "Colegio de Técnicos Constructores y Constructores Universitarios de la Provincia de Córdoba" },
-        { "organizacion": "Asociación Inmobiliaria de Villa Carlos Paz" },
-        { "organizacion": "CEPIA · Centro de Profesionales de la Ingeniería y la Arquitectura" }
+        {
+          "organizacion": "Colegio de Arquitectos de la Provincia de Córdoba Regional 6",
+          "vacante": true,
+          "integrantes": [
+            {
+              "nombre": "Sin representante designado"
+            }
+          ]
+        },
+        {
+          "organizacion": "Colegio de Ingenieros Civiles Delegación 7 Sierras",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "Ing. Javier Isola Almirall"
+            },
+            {
+              "rol": "1º suplente",
+              "nombre": "Ing. Roberto Ciro Rodriguez"
+            }
+          ]
+        },
+        {
+          "organizacion": "Centro de Profesionales de la Ingeniería y la Arquitectura (CEPIA)",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "Ing. Mario Macagno"
+            },
+            {
+              "rol": "1º suplente",
+              "nombre": "Arq. Ana Maria Margonari"
+            },
+            {
+              "rol": "2º suplente",
+              "nombre": "C.U. Eduardo Vega"
+            }
+          ]
+        },
+        {
+          "organizacion": "Asociación Inmobiliaria de Villa Carlos Paz",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "CI Juan Ramón Toledo"
+            },
+            {
+              "rol": "1º suplente",
+              "nombre": "CI Martina Casesi"
+            },
+            {
+              "rol": "2º suplente",
+              "nombre": "CI Melisa Inés Beistegui"
+            }
+          ]
+        },
+        {
+          "organizacion": "Colegio de Técnicos Constructores y/o Constructores Universitarios de la Provincia de Córdoba",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "C.U. Oscar Alberto Luna"
+            },
+            {
+              "rol": "1º suplente",
+              "nombre": "C.U. Rodolfo Restifo Pilato"
+            },
+            {
+              "rol": "2º suplente",
+              "nombre": "T.C.U. Marcelo Moeremans"
+            }
+          ]
+        }
       ]
     },
     {
-      "titulo": "Organizaciones ambientales",
+      "titulo": "Organización ambiental",
       "miembros": [
-        { "organizacion": "ADARSA · Asociación de Amigos del Río San Antonio" }
-      ]
-    },
-    {
-      "titulo": "Concejo de Representantes",
-      "miembros": [
-        { "organizacion": "Bloque Mayoritario" },
-        { "organizacion": "Bloques Minoritarios" }
+        {
+          "organizacion": "Asociación de Amigos del Río San Antonio (ADARSA)",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "Lic. Laura Colladon"
+            },
+            {
+              "rol": "1º suplente",
+              "nombre": "Tec. en Gestión Ambiental Macarena Rocío González"
+            },
+            {
+              "rol": "2º suplente",
+              "nombre": "Sr. Danilo José Castelli"
+            }
+          ]
+        }
       ]
     },
     {
       "titulo": "Departamento Ejecutivo Municipal",
       "miembros": [
-        { "organizacion": "Dirección de Obras Privadas y Catastro" },
-        { "organizacion": "Dirección de Infraestructura Urbana" },
-        { "organizacion": "Dirección de Ambiente, Ejido y Desarrollo Sustentable" },
-        { "organizacion": "Secretaría de Gobierno y Coordinación" }
+        {
+          "organizacion": "Titulares",
+          "integrantes": [
+            {
+              "nombre": "Arq. Adrián Rodrigo Cocordano",
+              "cargo": "Director de Obras Privadas, Catastro y Planeamiento"
+            },
+            {
+              "nombre": "Sr. Luis López",
+              "cargo": "Coordinación General de Ambiente y Desarrollo Sostenible"
+            }
+          ]
+        },
+        {
+          "organizacion": "Suplentes",
+          "integrantes": [
+            {
+              "nombre": "Lic. Horacio Adrián Pedrone"
+            },
+            {
+              "nombre": "Ing. Gustavo García Setti"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Concejo de Representantes",
+      "miembros": [
+        {
+          "organizacion": "Bloque Mayoritario",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "Concejal Marcela Bosch"
+            },
+            {
+              "rol": "Suplente",
+              "nombre": "Concejal Juan Claudio Bocchetti"
+            }
+          ]
+        },
+        {
+          "organizacion": "Bloques Minoritarios",
+          "integrantes": [
+            {
+              "rol": "Titular",
+              "nombre": "Concejal Noelia García Roñoni"
+            },
+            {
+              "rol": "Suplente",
+              "nombre": "Concejal Pía Felpeto"
+            }
+          ]
+        }
       ]
     },
     {
       "titulo": "Unidad Técnica",
       "miembros": [
-        { "organizacion": "Concejo de Representantes · Bloque Mayoritario y Bloques Minoritarios" },
-        { "organizacion": "Secretaría de Desarrollo Urbano Ambiental" },
-        { "organizacion": "Departamento Ejecutivo Municipal · Coordinación" },
-        { "organizacion": "Profesionales técnicos designados por el Concejo de Representantes y el Departamento Ejecutivo" }
+        {
+          "organizacion": "Departamento Ejecutivo Municipal",
+          "integrantes": [
+            {
+              "rol": "Coordinador",
+              "nombre": "Arq. Adrián Rodrigo Cocordano",
+              "cargo": "Director de Obras Privadas, Catastro y Planeamiento"
+            },
+            {
+              "nombre": "Tec. Sup. en Biotecnología Viviana Martínez",
+              "rol": "Representante del Ejecutivo",
+              "cargo": "Coordinación General de Ambiente y Desarrollo Sostenible"
+            }
+          ]
+        },
+        {
+          "organizacion": "Concejo de Representantes",
+          "integrantes": [
+            {
+              "rol": "Bloque Mayoritario",
+              "nombre": "Concejal Raquel Merlino"
+            },
+            {
+              "rol": "Bloques Minoritarios",
+              "nombre": "Concejal Fernando Revello"
+            }
+          ]
+        },
+        {
+          "organizacion": "Profesionales (por concurso)",
+          "integrantes": [
+            {
+              "nombre": "Arq. Alberto Verdinelli"
+            },
+            {
+              "nombre": "Arq. Inés Arabia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Secretaría y equipo técnico",
+      "miembros": [
+        {
+          "organizacion": "Secretaría",
+          "integrantes": [
+            {
+              "nombre": "Adm. Miriam Birchmeyer"
+            }
+          ]
+        },
+        {
+          "organizacion": "Analistas",
+          "integrantes": [
+            {
+              "nombre": "Mgtr. Arq. Nazareth Paz Margonari"
+            },
+            {
+              "nombre": "Mgtr. Lic. Juan Manuel Echecolanea"
+            }
+          ]
+        }
       ]
     }
   ]

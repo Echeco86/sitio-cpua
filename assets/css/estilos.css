@@ -275,6 +275,10 @@ p { margin: 0 0 1em; }
 .persona ul { list-style: none; margin: 0; padding: 0; }
 .persona li { font-weight: 600; color: var(--tinta); line-height: 1.4; padding: 3px 0; }
 .persona li small { display: block; font-weight: 500; color: var(--suave); font-size: .8rem; }
+.persona li .rol { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--verde); }
+.persona li + li { border-top: 1px solid var(--linea); margin-top: 6px; padding-top: 8px; }
+.persona.vacante { background: transparent; border-style: dashed; }
+.persona.vacante li { color: var(--suave); font-weight: 500; font-style: italic; }
 .persona.institucion { display: flex; gap: 14px; align-items: center; font-weight: 600; font-size: .95rem; color: var(--tinta); line-height: 1.35; padding: 16px 18px; }
 .ic-inst { flex: none; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--lima-50); color: var(--verde); }
 .ic-inst svg { width: 20px; height: 20px; }
